@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #cont {
+            width:95vw;
+            margin:auto;
+           
+        }
+        body {
+            background-color:antiquewhite;
+        }
+        input {
+            margin-bottom:20px;
+        }
+        #form {
+            border:1px solid;
+            width:25%;
+            float:left;
+            height:510px;
+            padding:10px;
+        }
+        #btn {
+            padding:10px 20px;
+        }
+        #info {
+            display:grid;
+            grid-template-columns: auto auto;
+              width:72%;
+             border:1px solid;
+             float:right;
+             height:530px;
+            
+        
+        }
+        .productDiv {
+          
+            border:1px solid;
+            margin:4%;
+            width:250px;
+            height:80px;
+            background-color:aqua;
+           
+        }
+        .btn1C {
+            background-color:red;
+            border:1px solid black;
+            margin:5px;
+             width:115px;
+        }
+        .btn2C {
+            background-color:blue;
+            border:1px solid black;
+            margin:5px;
+            width:115px;
+        }
+        h1{
+            text-align:center;
+        }
+        .h3E {
+            text-align: center;
+            margin:3px;
+        }
+        .p11 {
+            text-align:center;
+            margin:2px;
+        }
+        button {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Nike Inventory System</h1>
+    <div id=cont>
+        <div id = form> 
+            Name: <br> <input type="text" id="name" /> <br>
+            Price: <br> <input type="number" id="price"> <br>
+            Category: <br> <input type="text" id="category"/> <br>
+            Estimated delivery days: <br> <input type="number" id="days" />
+            <center><button id="btn">Add Product</button></center>
+        </div>
+        <div id="info">
+        </div>
+    </div>
+</body>
+</html>
+
+<script>
+     
+    var btn = document.getElementById('btn');
+    var info = document.getElementById('info');
+     var i = 1;
+     function addProduct(){
+         var name = document.getElementById("name").value;
+         console.log(name);
+         var price = document.getElementById("price").value;
+         console.log(price);
+         var category = document.getElementById("category").value;
+         console.log(category);
+         var days = document.getElementById("days").value;
+         console.log(days);
+         
+         var div = document.createElement('div');
+         div.id = `${i}`;
+         div.setAttribute('class','productDiv');
+
+         var h3 = document.createElement('h3');
+         h3.textContent = document.getElementById("name").value;
+         h3.setAttribute('class', 'h3E')
+
+         var p = document.createElement('p');
+         p.textContent = `₹ ${document.getElementById("price").value}`;
+         p.setAttribute('class', 'p11');
+         
+
+         var btn1 = document.createElement('button');
+         btn1.id = `Rem${i}`;
+         btn1.textContent = "Remove Product";
+         btn1.setAttribute('class', 'btn1C');
+
+         var btn2 = document.createElement('button');
+         btn2.id = `Upd${i}`;
+         btn2.textContent = "Update Price";
+         btn2.setAttribute('class', 'btn2C');
+
+         info.appendChild(div);
+         div.appendChild(h3);
+         div.appendChild(p);
+         div.appendChild(btn1);
+         div.appendChild(btn2);
+        i++;
+
+     }   
+    btn.addEventListener('click', addProduct);
+    
+    function removeP1(){
+          
+    }
+    
+   
+</script>
